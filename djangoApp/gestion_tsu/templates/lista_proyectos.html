@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Proyectos TSU</title>
+</head>
+<body>
+    <h1>Proyectos Registrados</h1>
+    <ul>
+        {% for proyecto in proyectos %}
+            <li>
+                {{ proyecto.titulo }} - {{ proyecto.estudiante }} ({{ proyecto.estado }})
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

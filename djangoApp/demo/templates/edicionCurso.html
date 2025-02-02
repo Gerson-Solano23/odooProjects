@@ -1,0 +1,29 @@
+
+{% extends "./baseTemplate.html" %}
+
+{% block title %} Gestion de Cursos {% endblock %}
+
+{% block body %}
+ <h2 class="py-4 text-secondary">Editar Curso</h2>
+            <div class="card">
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                    <div class="card-body">
+                        <form action="{% url 'editarCurso' %}" method="post">{% csrf_token %}
+                            <div class="form-group ">
+                                <input class="form-control mb-3" type="text" id="txtId" name="txtId" value={{curso.idCurso}} placeholder="Digite el Id" maxlength="6" minlength="6" required readonly>
+                                 <input class="form-control mb-3" type="text" id="txtNombre" name="txtNombre" value="{{ curso.nombre }}" placeholder="Digite el nombre" maxlength="60"  required >
+                                 <input class="form-control mb-3" type="number" id="numCreditos" name="numCreditos" value={{curso.creditos}} placeholder="Agregue la cantidad de créditos"  min="1" max="10" required >
+                            </div>
+                            <div class="form-group mt-3">
+                                <button type="submit" class="btn btn-success btn-block">Editar</button>
+                            </div>
+                        </form>
+                    </div>
+                 </div>
+{% endblock %}
