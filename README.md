@@ -5,4 +5,3 @@
 - admin: python manage.py createsuperuser user, email and password
 - python manage.py runserver
 
-odoo
