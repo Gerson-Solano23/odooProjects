@@ -1,0 +1,41 @@
+<odoo>
+    <!-- Vista de lista -->
+    <record id="view_curso_tree" model="ir.ui.view">
+        <field name="name">Lista de Cursos</field>
+        <field name="model">academia.curso</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="codigo"/>
+                <field name="nombre"/>
+                <field name="creditos"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista de formulario -->
+    <record id="view_curso_form" model="ir.ui.view">
+        <field name="name">Formulario de Curso</field>
+        <field name="model">academia.curso</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="idCurso"/>
+                        <field name="nombre"/>
+                        <field name="creditos"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción y menú -->
+    <menuit name="Academia" id="menu_academia" sequence="10"/>
+    <menuit name="Cursos" id="menu_academia_cursos" parent="menu_academia" action="action_cursos"/>
+
+    <record id="action_cursos" model="ir.actions.act_window">
+        <field name="name">Cursos</field>
+        <field name="res_model">academia.curso</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
